@@ -30,9 +30,13 @@
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "node_modules/bootstrap/dist/css/bootstrap.min.css"
             ],
-            "scripts": []
+            "scripts": [
+              "node_modules/bootstrap/dist/js/bootstrap.min.js",
+              "node_modules/isotope-layout/dist/isotope.pkgd.min.js",
+              "src/assets/js/tomvisions.js"
+            ]
           },
           "configurations": {
             "production": {
