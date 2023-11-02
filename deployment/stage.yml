@@ -17,7 +17,7 @@ phases:
   #      - npm install --save @angular/material @angular/cdk fs path ok
   build:
     commands:
-      - ng build --configuration
+      - ng build
   post_build:
     commands:
       - aws s3 rm s3://gallery.tomvisions.com --recursive --quiet
