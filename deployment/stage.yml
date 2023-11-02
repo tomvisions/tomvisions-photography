@@ -20,7 +20,6 @@ phases:
       - ng build --configuration=production
   post_build:
     commands:
-      - aws s3 rm s3://gallery.tomvisions.com --recursive --quiet
 artifacts:
   files:
     - '**/*'
