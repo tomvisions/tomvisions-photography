@@ -11,7 +11,7 @@ phases:
       - echo Installing Angular CLI
       - npm install --location=global @angular/cli
       - ng version
-      - echo Installing Node Dependencies
+      - echo Installing Node Dependencies Now
       - npm install --save @angular/material @angular/cdk
       - npm ci
   #      - npm install --save @angular/material @angular/cdk fs path ok
