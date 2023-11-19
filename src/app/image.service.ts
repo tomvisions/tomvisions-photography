@@ -24,6 +24,28 @@ export class ImageService {
     return `${this._PARAM_FRONTCLOUD}/${resizedImage}`;
   }
 
+    loadImage1280x720(image) {
+      const resizedImage = this.resizeWithInS3(image, {
+        "resize": {
+          "width": 1280,
+          "height":720,
+          "fit": "cover"
+        }
+      });
+      return `${this._PARAM_FRONTCLOUD}/${resizedImage}`;
+    }
+  
+    loadImage100x100(image) {
+      const resizedImage = this.resizeWithInS3(image, {
+        "resize": {
+          "width": 270,
+          "height": 270,
+          "fit": "inside"
+        }
+      });
+      return `${this._PARAM_FRONTCLOUD}/${resizedImage}`;
+    }
+  
 
   /**
    * Setup Signature so that a specific bucket and key are resized with the resized serverless app that is running along with the edits
@@ -48,7 +70,6 @@ export class ImageService {
 
   public setSitePrefix(prefix = true) {
     if (!prefix) {
-      this._PARAM_LOCATION = null;
       this._PARAM_LOCATION = null;
     }
   }

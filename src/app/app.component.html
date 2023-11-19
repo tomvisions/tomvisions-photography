@@ -1,16 +1,4 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="">
-  <meta name="author" content="">
 
-  <title>Gallery</title>
-
-</head>
-
-<body>
   <!-- Navbar and Header -->
 <nav class="row nav-extended full-width">
       <div class="col-md-12 no-padding">
@@ -37,10 +25,10 @@
               <div class="container">
                 <div class="filters">
                   <ul>
-                    <li class="is-checked" data-filter="*">All</li>
-                    <li data-filter=".idea">People</li>
-                    <li data-filter=".ui">Nature</li>
-                    <li data-filter=".ux">Workshops</li>
+                    <li #homelink class="is-checked" data-filter="*">All</li>
+                    <li #peoplelink class="people" data-filter=".people">People</li>
+                    <li #naturelink data-filter=".nature">Nature</li>
+                    <li #workshopslink data-filter=".workshops">Workshops</li>
                   </ul>
                 </div>
               </div>
@@ -48,51 +36,5 @@
         </div>
 </nav>
 <div class="container">
-  <div class="row">
-    <div class="col-md-12">
-      <div class="rows grid">
-      <div class="col-md-3 grid-item logic" data-category="websites">
-        <h1>1</h1>
-      </div>
-      <div class="col-md-3 grid-item flyers" data-category="flyers">
-        <h1>2</h1>
-      </div>
-      <div class="col-md-6 grid-item idea" data-category="ads">
-        <h1>3</h1>
-      </div>
-      <div class="col-md-4 grid-item code" data-category="books">
-        <h1>4</h1>
-      </div>
-      <div class="col-md-4 grid-item ui" data-category="logos">
-        <h1>5</h1>
-      </div>
-      <div class="col-md-4 grid-item ux" data-category="websites">
-        <h1>6</h1>
-      </div>
-      <div class="col-md-6 grid-item idea" data-category="ads">
-        <h1>7</h1>
-      </div>
-      <div class="col-md-6 grid-item code" data-category="books">
-        <h1>8</h1>
-      </div>
-      <div class="col-md-6 grid-item creativity" data-category="books">
-        <h1>9</h1>
-      </div>
-      <div class="col-md-2 grid-item creativity" data-category="books">
-        <h1>10</h1>
-      </div>
-        <div class="col-md-2 grid-item ux" data-category="books">
-        <h1>11</h1>
-      </div>
-      <div class="col-md-12 grid-item ux" data-category="books">
-        <h1>12</h1>
-      </div>
-        </div>
-    </div>
-  </div>
+  <router-outlet></router-outlet>
 </div>
-<!-- Core Javascript -->
-</body>
-</html>
-
-<router-outlet></router-outlet>
