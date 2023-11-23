@@ -1,0 +1,15 @@
+<div class="row">
+    <div class="col-md-12">
+      <div class="rows grid mix-wrapper" id="mix-wrapper">
+        <ng-container *ngIf="(images$ | async) as  images">
+            <ng-container *ngIf="images.length > 0;">
+              <div *ngFor="let image of images;let index = index" class="row" >
+          
+                <a class href="/{{image.GalleryId}}" class="mix-target {{image.TagId}} col-md-4 grid-item" data-order="1">
+                  <img  src="{{image.key}}" width="350" alt="About MamboleFC"><span style="color:black; font-size:1.5em;">{{image.name}}</span></a>
+            </div>                    
+            </ng-container>
+          </ng-container>
+        </div>
+    </div>
+</div>

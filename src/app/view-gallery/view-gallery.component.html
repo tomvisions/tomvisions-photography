@@ -1,0 +1,16 @@
+<lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide">
+    <ng-template ngFor let-image [ngForOf]="galleryImages">
+    <a 
+    data-pinterest-text="Pin it1"
+    data-tweet-text="lightGallery slide  1"
+    data-facebook-share-url="share/facebook-share-url"
+    data-twitter-share-url="share/twitter-share-url"
+    data-pinterest-share-url="share/pinterest-share-url"
+    
+    href="{{image.big}}" >
+        <img alt="{{image.description}} - TomVisions Photography" src="{{image.small}}"  style="border:10px solid white;" />
+    </a>
+    </ng-template>
+</lightgallery>
+
+

@@ -17,7 +17,7 @@ phases:
   #      - npm install --save @angular/material @angular/cdk fs path ok
   build:
     commands:
-      - ng build --configuration=production
+      - ng build --configuration=stage
   post_build:
     commands:
 artifacts:

@@ -29,11 +29,23 @@ export class ImageService {
         "resize": {
           "width": 1280,
           "height":720,
-          "fit": "cover"
+          "fit": "inside"
         }
       });
       return `${this._PARAM_FRONTCLOUD}/${resizedImage}`;
     }
+
+    loadImage720x1280(image) {
+      const resizedImage = this.resizeWithInS3(image, {
+        "resize": {
+          "width": 720,
+          "height":1280,
+          "fit": "inside"
+        }
+      });
+      return `${this._PARAM_FRONTCLOUD}/${resizedImage}`;
+    }
+
   
     loadImage100x100(image) {
       const resizedImage = this.resizeWithInS3(image, {
