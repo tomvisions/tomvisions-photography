@@ -12,9 +12,9 @@ export class SharedService {
 //      this._apiLocation = 'http://127.0.0.1:9000'
       this._apiLocation = 'https://api-stage.tomvisions.com'
     } else if (environment.node_env === 'stage') {
-        this._apiLocation = 'https://api-stage.mamboleofc.ca'
+        this._apiLocation = 'https://api-stage.tomvisions.ca'
     } else {
-      this._apiLocation = 'https://api.mamboleofc.ca';
+      this._apiLocation = 'https://api.tomvisions.ca';
     }
   }
 
