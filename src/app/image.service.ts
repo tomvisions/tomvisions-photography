@@ -27,8 +27,8 @@ export class ImageService {
     loadImage1280x720(image) {
       const resizedImage = this.resizeWithInS3(image, {
         "resize": {
-          "width": 1280,
-          "height":720,
+          "width": 3280,
+          "height":1024,
           "fit": "inside"
         }
       });

@@ -22,8 +22,9 @@ export class AppComponent implements AfterViewInit, OnDestroy {
   homeImage;
   title = 'TomVisions\'s Photography';
   @ViewChild('homelink') homelink: any;
-  @ViewChild('naturelink') naturelink: any;
+  @ViewChild('naturelink') naturelink: any; 
   @ViewChild('peoplelink') peoplelink: any;
+  @ViewChild('eventslink') eventslink: any;
   @ViewChild('workshopslink') workshopslink: any;
 
   private unlistener: () => void;
@@ -49,6 +50,12 @@ export class AppComponent implements AfterViewInit, OnDestroy {
     this._renderer2.listen(this.peoplelink.nativeElement, "click", event => {
       if (this._router.url !== "/") {
         this._router.navigateByUrl('/#people');
+      }
+    });
+
+    this._renderer2.listen(this.eventslink.nativeElement, "click", event => {
+      if (this._router.url !== "/") {
+        this._router.navigateByUrl('/#events');
       }
     });
 

@@ -56,10 +56,12 @@ export class ViewGalleryService
 */
   getGallery(id): Observable<GetGallery>
   {
-    console.log(`${this._sharedService.apiLocation}/api/v1/media/id/${id}/image`);
+    console.log(`${this._sharedService.apiLocation}/api/v1/media/id/${id}/image/0/40/key/asc`);
+
+
     return this.getGallery$.pipe(
       take(1),
-      switchMap(theContactUs => this._httpClient.get<GetGallery>(`${this._sharedService.apiLocation}/api/v1/media/id/${id}/image`,
+      switchMap(theContactUs => this._httpClient.get<GetGallery>(`${this._sharedService.apiLocation}/api/v1/media/id/${id}/image/1/100/key/asc`,
         { headers: {
             'Content-Type': 'application/json'
           }}).pipe(
