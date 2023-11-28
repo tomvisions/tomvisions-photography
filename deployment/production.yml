@@ -1,0 +1,27 @@
+version: 0.2
+
+phases:
+  install:
+    commands:
+      - git config --global credential.helper '!aws --region us-east-1 codecommit credential-helper $@'
+      - git config --global credential.UseHttpPath true
+  pre_build:
+    commands:
+      - npm --version
+      - echo Installing Angular CLI
+      - npm install --location=global @angular/cli
+      - ng version
+      - echo Installing Node Dependencies Now
+    #  - npm install --save @angular/material @angular/cdk
+      - npm ci
+  #      - npm install --save @angular/material @angular/cdk fs path ok
+  build:
+    commands:
+      - ng build --configuration=production
+  post_build:
+    commands:
+artifacts:
+  files:
+    - '**/*'
+  base-directory: 'dist'
+  discard-paths: no
