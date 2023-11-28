@@ -29,7 +29,7 @@ export class ImageService {
         "resize": {
           "width": 3280,
           "height":1024,
-          "fit": "inside"
+          "fit": "outside"
         }
       });
       return `${this._PARAM_FRONTCLOUD}/${resizedImage}`;
@@ -40,7 +40,7 @@ export class ImageService {
         "resize": {
           "width": 720,
           "height":1280,
-          "fit": "inside"
+          "fit": "outside"
         }
       });
       return `${this._PARAM_FRONTCLOUD}/${resizedImage}`;
