@@ -30,7 +30,7 @@ export class MainGalleryService {
      //   return this._pagination.asObservable();
    // }
     getImages(page: number = 0, size: number = 10, sort: string = 'name', order: 'asc' | 'desc' | '' = 'asc', search: string = ''): Observable<{ images: Image[] }> {
-      console.log(`${this._sharedService.apiLocation}/api/v1/media/primary/section/all`);
+      console.log(`${this._sharedService.apiLocation}/api/v1/media/primary`);
         return this._httpClient.get<{ images: Image[] }>(`${this._sharedService.apiLocation}/api/v1/media/primary`).pipe(
             tap((response) => {
         //        this._pagination.next(response.pagination);
