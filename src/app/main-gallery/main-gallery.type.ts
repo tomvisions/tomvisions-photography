@@ -15,7 +15,8 @@ export interface Image {
   description: string
   createdAt: Date;
   updatedAt: Date;
-  TagId: string;
+  TagId?: string;
+  TagsId? : string[]
   orientation: string
 }
 

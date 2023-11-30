@@ -7,19 +7,21 @@ import { MainGalleryComponent } from './main-gallery/main-gallery.component';
 import { ViewGalleryComponent } from './view-gallery/view-gallery.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LightgalleryModule } from 'lightgallery/angular';
+import { DisplayTagsPipe } from './display-tags.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainGalleryComponent,
-    ViewGalleryComponent
+    ViewGalleryComponent,
   ],
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
     AppRoutingModule,
     HttpClientModule,
-    LightgalleryModule
+    LightgalleryModule,
+    DisplayTagsPipe
   ],
   providers: [],
   bootstrap: [AppComponent]

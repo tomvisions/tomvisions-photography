@@ -5,7 +5,7 @@
             <ng-container *ngIf="images.length > 0;">
               <div *ngFor="let image of images;let index = index" class="row" >
           
-                <a class href="/{{image.GalleryId}}" class="mix-target {{image.TagId}} col-md-6  col-sm-12 col-lg-4 grid-item" data-order="1">
+                <a class href="/{{image.GalleryId}}" class="mix-target {{image.TagsId | displayTags }} col-md-8  col-sm-12 col-lg-4 grid-item" data-order="1">
                   <img  src="{{image.key}}" width="350" alt="About MamboleFC"><span style="color:black; font-size:1.5em;">{{image.name}}</span></a>
             </div>                    
             </ng-container>
