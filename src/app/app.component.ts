@@ -36,8 +36,6 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
 
   ngOnInit() {
     this.code = this._cookieService.getCookie('gallery_code');
-    console.log('the code');
-    console.log(this.code);
   }
 
   ngAfterViewInit() : void  {

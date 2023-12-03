@@ -32,7 +32,7 @@ export class MainGalleryService {
    // }
     getImages(page: number = 0, size: number = 10, sort: string = 'name', order: 'asc' | 'desc' | '' = 'asc', search: string = ''): Observable<{ images: Image[] }> {
         let url = `${this._sharedService.apiLocation}/api/v1/media/primary`;
-        
+
         if (this.code) {
             url = url.concat(`/${this.code}`)
         }
