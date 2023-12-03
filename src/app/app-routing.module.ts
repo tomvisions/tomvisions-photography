@@ -4,14 +4,24 @@ import { MainGalleryComponent } from './main-gallery/main-gallery.component';
 import { MainGalleryResolver } from './main-gallery/main-gallery.resolver';
 import { ViewGalleryComponent } from './view-gallery/view-gallery.component';
 import { ViewGalleryResolver } from './view-gallery/view-gallery.resolver';
+import { LoginComponent } from './login/login.component';
+import { LogoutComponent} from "./logout/logout.component";
 
 const routes: Routes = [
-  { 
-    path: '', 
+  {
+    path: '',
     component: MainGalleryComponent,
     resolve: {
       images: MainGalleryResolver,
     }
+  },
+  {
+    path: 'login',
+    component: LoginComponent,
+  },
+  {
+    path: 'logout',
+    component: LogoutComponent,
   },
   {
     path: ':id',
@@ -19,7 +29,8 @@ const routes: Routes = [
     resolve: {
       images: ViewGalleryResolver,
     }
-  },
+
+  }
 ];
 
 @NgModule({

@@ -8,12 +8,18 @@ import { ViewGalleryComponent } from './view-gallery/view-gallery.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import { LightgalleryModule } from 'lightgallery/angular';
 import { DisplayTagsPipe } from './display-tags.pipe';
+import { LoginComponent } from './login/login.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { LogoutComponent } from './logout/logout.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
     MainGalleryComponent,
     ViewGalleryComponent,
+    LoginComponent,
+    LogoutComponent,
   ],
   imports: [
     BrowserModule,
@@ -21,7 +27,9 @@ import { DisplayTagsPipe } from './display-tags.pipe';
     AppRoutingModule,
     HttpClientModule,
     LightgalleryModule,
-    DisplayTagsPipe
+    DisplayTagsPipe,
+    ReactiveFormsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

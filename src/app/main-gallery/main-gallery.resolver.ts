@@ -28,7 +28,6 @@ export class MainGalleryResolver implements Resolve<any>
    */
   resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<{ images: Image[] }>
   {
-
     return this._mainGalleryService.getImages();
   }
 }

@@ -11,7 +11,12 @@
               <a href="#" data-target="nav-mobile" class="sidenav-trigger"><i class="material-icons">menu</i></a>
               <ul class="right d-none d-lg-block background-black-light">
                 <li><a href="https://www.tomvisions.com">Home</a></li>
-                <li class="active"><a href="index.html">Gallery</a></li>
+                <li><a href="index.html">Gallery</a></li>
+                <li><a *ngIf="this.code;else nocode" href="/logout">Logout Code {{this.code}}</a></li>
+                <ng-template #nocode>
+                  <li><a href="/login">Login</a></li>
+                </ng-template>
+
               </ul>
               <div class="nav-header center">
                 <h1>Tom Cruickshank Photography</h1>

@@ -1,0 +1,16 @@
+<div class="row">
+    <!-- Contact Map -->
+
+    <!-- Contact Info -->
+
+    <!-- Contact Form -->
+    <div class="col-lg-8 col-md-7 col-12 mb-30">
+        <div class="contact-form">
+            <h4>Enter Code</h4>
+            <form [formGroup]="loginForm">
+                <input type="text" name="code" placeholder="Code" [formControlName]="'code'">
+                <button (click)="loginWithCode()" class="submit">Send</button>
+            </form>
+        </div>
+    </div>
+</div>

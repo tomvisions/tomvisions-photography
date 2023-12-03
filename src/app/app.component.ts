@@ -1,9 +1,10 @@
-import { Component, ViewEncapsulation, ElementRef, AfterViewInit, Renderer2, OnDestroy} from '@angular/core';
+import {Component, ViewEncapsulation, ElementRef, AfterViewInit, Renderer2, OnDestroy, OnInit} from '@angular/core';
 import { ImageService, } from './image.service';
 import { Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ViewChild } from '@angular/core';
 import mixitup from 'mixitup';
+import {CookieService} from "./cookie.service";
 //import { mixitupIstance } from './main-gallery/main-gallery.component';
 
 @Component({
@@ -18,21 +19,25 @@ import mixitup from 'mixitup';
   encapsulation: ViewEncapsulation.None,
 })
 
-export class AppComponent implements AfterViewInit, OnDestroy {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   homeImage;
   title = 'TomVisions\'s Photography';
   @ViewChild('homelink') homelink: any;
-  @ViewChild('naturelink') naturelink: any; 
+  @ViewChild('naturelink') naturelink: any;
   @ViewChild('peoplelink') peoplelink: any;
   @ViewChild('eventslink') eventslink: any;
   @ViewChild('workshopslink') workshopslink: any;
-
   private unlistener: () => void;
+  code:string;
 
-  constructor( private _imageService:ImageService, private _renderer2: Renderer2, private _router : Router, private _location: Location, private _elementRef: ElementRef ) {
+  constructor( private _imageService:ImageService, private _renderer2: Renderer2, private _router : Router, private _cookieService: CookieService ) {
     this.homeImage = this._imageService.loadImage983x409('waterfall-sm2.jpg');
+  }
 
-    
+  ngOnInit() {
+    this.code = this._cookieService.getCookie('gallery_code');
+    console.log('the code');
+    console.log(this.code);
   }
 
   ngAfterViewInit() : void  {
