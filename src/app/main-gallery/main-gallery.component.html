@@ -1,5 +1,6 @@
-<div class="row">
-    <div class="col-md-12">
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-12">
       <div class="rows grid mix-wrapper" id="mix-wrapper">
         <ng-container *ngIf="(images$ | async) as  images">
             <ng-container *ngIf="images.length > 0;">
@@ -12,4 +13,5 @@
           </ng-container>
         </div>
     </div>
+  </div>
 </div>
