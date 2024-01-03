@@ -27,21 +27,16 @@ export class MainGalleryService {
     get images$(): Observable<Image[]> {
         return this._images.asObservable();
     }
-   // get pagination$(): Observable<GalleryPagination> {
-     //   return this._pagination.asObservable();
-   // }
+
     getImages(page: number = 0, size: number = 10, sort: string = 'name', order: 'asc' | 'desc' | '' = 'asc', search: string = ''): Observable<{ images: Image[] }> {
         let url = `${this._sharedService.apiLocation}/api/v1/media/primary`;
 
         if (this.code) {
             url = url.concat(`/${this.code}`)
         }
-        console.log(url);
+
         return this._httpClient.get<{ images: Image[] }>(url).pipe(
             tap((response) => {
-        //        this._pagination.next(response.pagination);
-              //  console.log(response);
-
                 this._images.next(response.images);
             })
         );
