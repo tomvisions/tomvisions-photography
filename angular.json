@@ -33,14 +33,15 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/lightgallery/css/lightgallery.css",
               "node_modules/lightgallery/css/lg-zoom.css",
-              "node_modules/lightgallery/css/lg-thumbnail.css"  
-  
+              "node_modules/lightgallery/css/lg-thumbnail.css",  
+              "node_modules/@materializecss/materialize/dist/css/materialize.min.css"
             ],
             "scripts": [
               "node_modules/bootstrap/dist/js/bootstrap.min.js",
               "node_modules/lightgallery/lightgallery.min.js",
               "node_modules/lightgallery/plugins/thumbnail/lg-thumbnail.umd.js",
-              "node_modules/lightgallery/plugins/zoom/lg-zoom.umd.js"
+              "node_modules/lightgallery/plugins/zoom/lg-zoom.umd.js",
+              "node_modules/@materializecss/materialize/dist/js/materialize.min.js"
             ]
           },
           "configurations": {

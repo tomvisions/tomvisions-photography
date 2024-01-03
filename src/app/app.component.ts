@@ -5,7 +5,8 @@ import { Location } from '@angular/common';
 import { ViewChild } from '@angular/core';
 import mixitup from 'mixitup';
 import {CookieService} from "./cookie.service";
-//import { mixitupIstance } from './main-gallery/main-gallery.component';
+import {M as Materialize} from '@materializecss/materialize'
+
 
 @Component({
   selector: 'app-root',
@@ -38,7 +39,17 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     this.code = this._cookieService.getCookie('gallery_code');
   }
 
+  testdd() {
+    console.log('sd');
+  }
   ngAfterViewInit() : void  {
+    document.addEventListener('DOMContentLoaded', () => {
+        const elems = document.querySelectorAll('.sidenav');
+        const instance = Materialize.Sidenav.init(elems,{});
+      
+        
+    });
+
     this._renderer2.listen(this.homelink.nativeElement, "click", event => {
       if (this._router.url !== "/") {
         this._router.navigateByUrl('/');
