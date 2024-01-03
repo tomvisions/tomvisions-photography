@@ -9383,3 +9383,10 @@ button.submit {
   text-transform: uppercase;
   background-color: transparent;
 }
+
+span.gallery-writing {
+  color:black; 
+  font-size:1.5em;
+  display: block;
+  margin:5px 5px 20px 5px;
+}

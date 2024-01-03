@@ -36,7 +36,7 @@ export class MainGalleryService {
         if (this.code) {
             url = url.concat(`/${this.code}`)
         }
-
+        console.log(url);
         return this._httpClient.get<{ images: Image[] }>(url).pipe(
             tap((response) => {
         //        this._pagination.next(response.pagination);
