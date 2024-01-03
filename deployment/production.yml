@@ -13,7 +13,7 @@ phases:
       - ng version
       - echo Installing Node Dependencies Now
     #  - npm install --save @angular/material @angular/cdk
-      - npm ci
+      - yarn install
   #      - npm install --save @angular/material @angular/cdk fs path ok
   build:
     commands:
