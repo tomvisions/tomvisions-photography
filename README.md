@@ -1,4 +1,4 @@
-# gallery.tomvisons.com
+# photography.tomvisons.com
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 16.2.2. This has been built for my photography gallery.
 
