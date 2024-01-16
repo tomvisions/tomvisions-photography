@@ -38,16 +38,11 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     this.code = this._cookieService.getCookie('gallery_code');
   }
-
-  testdd() {
-    console.log('sd');
-  }
+  
   ngAfterViewInit() : void  {
     document.addEventListener('DOMContentLoaded', () => {
         const elems = document.querySelectorAll('.sidenav');
-        const instance = Materialize.Sidenav.init(elems,{});
-      
-        
+        const instance = Materialize.Sidenav.init(elems,{});  
     });
 
     this._renderer2.listen(this.homelink.nativeElement, "click", event => {
