@@ -8,7 +8,7 @@ declare var require: any;
 export class ImageService {
 
   private _PARAM_LOCATION:string|null = 'tomvisions/main-images';
-  private _PARAM_FRONTCLOUD:string|null = 'https://d34wc8uzk8vrsx.cloudfront.net';
+  private _PARAM_FRONTCLOUD:string|null = 'https://images.tomvisions.com';
 
   constructor() { }
 
