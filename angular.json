@@ -80,10 +80,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "gallery-tomvisions-main:build:production"
+              "buildTarget": "gallery-tomvisions-main:build:production"
             },
             "development": {
-              "browserTarget": "gallery-tomvisions-main:build:development"
+              "buildTarget": "gallery-tomvisions-main:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -91,7 +91,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gallery-tomvisions-main:build"
+            "buildTarget": "gallery-tomvisions-main:build"
           }
         },
         "test": {
