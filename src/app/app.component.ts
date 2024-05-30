@@ -23,12 +23,6 @@ import {M as Materialize} from '@materializecss/materialize'
 export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   homeImage;
   title = 'TomVisions\'s Photography';
-  @ViewChild('homelink') homelink: any;
-  @ViewChild('naturelink') naturelink: any;
-  @ViewChild('peoplelink') peoplelink: any;
-  @ViewChild('eventslink') eventslink: any;
-  @ViewChild('workshopslink') workshopslink: any;
-  private unlistener: () => void;
   code:string;
 
   constructor( private _imageService:ImageService, private _renderer2: Renderer2, private _router : Router, private _cookieService: CookieService ) {
@@ -38,42 +32,33 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   ngOnInit() {
     this.code = this._cookieService.getCookie('gallery_code');
   }
-  
+
   ngAfterViewInit() : void  {
     document.addEventListener('DOMContentLoaded', () => {
         const elems = document.querySelectorAll('.sidenav');
-        const instance = Materialize.Sidenav.init(elems,{});  
+        const instance = Materialize.Sidenav.init(elems,{});
     });
 
-    this._renderer2.listen(this.homelink.nativeElement, "click", event => {
-      if (this._router.url !== "/") {
-        this._router.navigateByUrl('/');
-      }
-    });
-    this._renderer2.listen(this.naturelink.nativeElement, "click", event => {
-      if (this._router.url !== "/") {
-        this._router.navigateByUrl('/#nature');
-      }
-    });
+    const clickedOn = (event) => {
+      const filters = document.querySelectorAll('.category-section')
+      Array.from(filters).forEach((element)=> {
+        element.classList.remove('is-checked')
+      })
+      event.target.classList.add('is-checked')
 
-    this._renderer2.listen(this.peoplelink.nativeElement, "click", event => {
-      if (this._router.url !== "/") {
-        this._router.navigateByUrl('/#people');
-      }
-    });
+      const filter = event.target.dataset.filter;
+      const url = filter.replace('.', '/#').replace('*', '/');
 
-    this._renderer2.listen(this.eventslink.nativeElement, "click", event => {
       if (this._router.url !== "/") {
-        this._router.navigateByUrl('/#events');
+        this._router.navigateByUrl(url);
       }
-    });
+    }
 
-    this._renderer2.listen(this.workshopslink.nativeElement, "click", event => {
-      if (this._router.url !== "/") {
-        this._router.navigateByUrl('/#workshops');
-      }
-    });
+    const filters = document.querySelectorAll('.category-section')
 
+    Array.from(filters).forEach((element)=> {
+      element.addEventListener("click", clickedOn);
+    })
   }
 
   onClick(event) {
