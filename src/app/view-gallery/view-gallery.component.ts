@@ -14,7 +14,7 @@ import lightGallery from 'lightgallery';
   styleUrls: ['./view-gallery.component.scss'],
   encapsulation: ViewEncapsulation.None,
 })
-export class ViewGalleryComponent {
+export class ViewGalleryComponent implements OnInit {
   private _unsubscribeAll: Subject<any> = new Subject<any>();
   galleryImages;
   galleries;
@@ -22,7 +22,7 @@ export class ViewGalleryComponent {
   settings;
   onBeforeSlide;
 
-  
+
   constructor(
     private _viewGalleryService: ViewGalleryService,
     private _imageService: ImageService) { }
@@ -33,30 +33,17 @@ export class ViewGalleryComponent {
       counter: false,
       plugins: [lgZoom],
     };
-    
+
     this.onBeforeSlide = (detail: BeforeSlideDetail): void => {
       const { index, prevIndex } = detail;
       console.log(index, prevIndex);
     };
-    
+
     this._viewGalleryService.getGallery$
       .pipe(takeUntil(this._unsubscribeAll))
       .subscribe((galleries) => {
 
         this.galleries = galleries
-        this._imageService.setSitePrefix(false);
-        this.galleryImages = [];
-        for (let image of this.galleries) {
-          if (image.orientation === 1) {
-      //    this.galleryImages.push({ big: this._imageService.loadImage1280x720(image['key']),  small: this._imageService.loadImage100x100(image['key']) })
-          this.galleryImages.push({ big: this._imageService.loadImage720x1280(image['key']),  small: this._imageService.loadImage100x100(image['key']) })
-          } else {
-       //     this.galleryImages.push({ big: this._imageService.loadImage720x1280(image['key']),  small: this._imageService.loadImage100x100(image['key']) })
-      
-            this.galleryImages.push({ big: this._imageService.loadImage1280x720(image['key']),  small: this._imageService.loadImage100x100(image['key']) })
-          }
-        }  
-        console.log(this.galleryImages);  
       })
   }
 }

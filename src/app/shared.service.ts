@@ -9,8 +9,8 @@ export class SharedService {
 
   constructor() {
     if (environment.node_env === 'dev') {
-      this._apiLocation = 'http://127.0.0.1:9000'
-     // this._apiLocation = 'https://api-stage.tomvisions.com'
+     // this._apiLocation = 'http://127.0.0.1:9000'
+      this._apiLocation = 'https://api-stage.tomvisions.com'
     } else if (environment.node_env === 'stage') {
         this._apiLocation = 'https://api-stage.tomvisions.com'
     } else {

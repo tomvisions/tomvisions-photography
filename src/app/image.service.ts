@@ -46,7 +46,7 @@ export class ImageService {
       return `${this._PARAM_FRONTCLOUD}/${resizedImage}`;
     }
 
-  
+
     loadImage100x100(image) {
       const resizedImage = this.resizeWithInS3(image, {
         "resize": {
@@ -55,9 +55,21 @@ export class ImageService {
           "fit": "inside"
         }
       });
-      return `${this._PARAM_FRONTCLOUD}/${resizedImage}`;
+
     }
-  
+
+  loadImage270x270(image) {
+    const resizedImage = this.resizeWithInS3(image, {
+      "resize": {
+        "width": 270,
+        "height": 270,
+        "fit": "inside"
+      }
+    });
+
+    return `${this._PARAM_FRONTCLOUD}/${resizedImage}`;
+  }
+
 
   /**
    * Setup Signature so that a specific bucket and key are resized with the resized serverless app that is running along with the edits

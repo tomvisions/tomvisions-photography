@@ -11,6 +11,7 @@ import { DisplayTagsPipe } from './display-tags.pipe';
 import { LoginComponent } from './login/login.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { LogoutComponent } from './logout/logout.component';
+import {FormatImagePipe} from "./format-image.pipe";
 
 
 @NgModule({
@@ -21,16 +22,17 @@ import { LogoutComponent } from './logout/logout.component';
     LoginComponent,
     LogoutComponent,
   ],
-  imports: [
-    BrowserModule,
-    BrowserAnimationsModule,
-    AppRoutingModule,
-    HttpClientModule,
-    LightgalleryModule,
-    DisplayTagsPipe,
-    ReactiveFormsModule,
-    FormsModule
-  ],
+    imports: [
+        BrowserModule,
+        BrowserAnimationsModule,
+        AppRoutingModule,
+        HttpClientModule,
+        LightgalleryModule,
+        DisplayTagsPipe,
+        ReactiveFormsModule,
+        FormsModule,
+        FormatImagePipe
+    ],
   providers: [],
   bootstrap: [AppComponent]
 })
