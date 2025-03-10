@@ -56,7 +56,7 @@ export class ViewGalleryService
 */
   getGallery(id): Observable<GetGallery>
   {
-    console.log(`${this._sharedService.apiLocation}/media/id/${id}/image/0/40/key/asc`);
+    console.log(`${this._sharedService.apiLocation}/media/id/${id}/image/1/100/key/asc`);
 
 
     return this.getGallery$.pipe(
