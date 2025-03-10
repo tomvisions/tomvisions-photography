@@ -61,10 +61,7 @@ export class ViewGalleryService
 
     return this.getGallery$.pipe(
       take(1),
-      switchMap(theContactUs => this._httpClient.get<GetGallery>(`${this._sharedService.apiLocation}/media/id/${id}/image/1/100/key/asc`,
-        { headers: {
-            'Content-Type': 'application/json'
-          }}).pipe(
+      switchMap(theContactUs => this._httpClient.get<GetGallery>(`${this._sharedService.apiLocation}/media/id/${id}/image/1/100/key/asc`).pipe(
         map((getGallery) => {
           this._getGallery.next(getGallery.data);
 
