@@ -1,4 +1,4 @@
-<lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide">
+<lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide" [onInit]="onInit">
   @for (image of galleries; track image; let i = $index) {
     <a
     data-pinterest-text="Pin it1"
