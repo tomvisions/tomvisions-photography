@@ -8,15 +8,15 @@ import {Gallery, GetGallery, Image} from '../main-gallery/main-gallery.type'
     providedIn: 'root'
 })
 
-export class ViewGalleryResolver 
+export class ViewGalleryResolver
 {
     /**
      * Constructor
      */
     constructor(private _viewGalleryService: ViewGalleryService,  private _router: Router)
     {
-    }  
-  
+    }
+
 
   // -----------------------------------------------------------------------------------------------------
   // @ Public methods
@@ -28,7 +28,7 @@ export class ViewGalleryResolver
    * @param route
    * @param state
    */
-  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<GetGallery>
+  resolve(route: ActivatedRouteSnapshot, state: RouterStateSnapshot): Observable<Gallery[]>
   {
     return this._viewGalleryService.getGallery(route.paramMap.get('id'))
       .pipe(

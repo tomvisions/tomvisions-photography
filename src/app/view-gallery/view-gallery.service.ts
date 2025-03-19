@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { BehaviorSubject, filter, map, Observable, of, switchMap, take, tap, throwError } from 'rxjs';
-import { GetGallery, Image} from '../main-gallery/main-gallery.type';
+import { BehaviorSubject, filter, map, Observable, of, switchMap, take, tap, throwError, toArray, from, scan, reduce  } from 'rxjs';
+import { GetGallery, Image, Gallery} from '../main-gallery/main-gallery.type';
 import {SharedService} from "../shared.service"
 
 @Injectable({
@@ -9,9 +9,12 @@ import {SharedService} from "../shared.service"
 })
 export class ViewGalleryService
 {
-  // Private
-  private _getGallery: BehaviorSubject<GetGallery | null> = new BehaviorSubject(null);
+  public increment: number = 12;
+  currentCount: number = 0;
 
+  // Private
+  private _getGallery: BehaviorSubject<Gallery[] | null> = new BehaviorSubject(null);
+  private _id = null
 
   /**
    * Constructor
@@ -29,7 +32,7 @@ export class ViewGalleryService
    /**
    * Getter for product
    */
-   get getGallery$(): Observable<GetGallery>
+   get getGallery$(): Observable<Gallery[]>
    {
      return this._getGallery.asObservable();
    }
@@ -54,14 +57,34 @@ export class ViewGalleryService
         );
       }
 */
-  getGallery(id): Observable<GetGallery>
+  getGallery(id = null): Observable<Gallery[]>
   {
-    console.log(`${this._sharedService.apiLocation}/media/id/${id}/image/1/100/key/asc`);
+    const parent = new Error().stack.split('\n')[2].trim().split(' ')[1]
+    console.log(parent)
+
+  //  console.log('call from [', ex.stack.split('\n')[2].trim().split(' ')[1], ']');
+
+
+    if (id !== null) {
+      this._id = id;
+    }
+
+    if (id === null) {
+      id = this._id
+    }
+
+
+    console.log("in get")
+    if (parent  !== "ViewGalleryResolver.resolve") {
+      this.currentCount = this.currentCount + 1;
+    }
+
+    console.log(`${this._sharedService.apiLocation}/media/id/${id}/image/${this.currentCount == 0 ? 1: this.currentCount}/12/key/asc`);
 
 
     return this.getGallery$.pipe(
       take(1),
-      switchMap(theContactUs => this._httpClient.get<GetGallery>(`${this._sharedService.apiLocation}/media/id/${id}/image/1/100/key/asc`).pipe(
+      switchMap(theContactUs => this._httpClient.get<GetGallery>(`${this._sharedService.apiLocation}/media/id/${id}/image/${this.currentCount == 0 ? 1: this.currentCount}/12/key/asc`).pipe(
         map((getGallery) => {
           this._getGallery.next(getGallery.data);
 

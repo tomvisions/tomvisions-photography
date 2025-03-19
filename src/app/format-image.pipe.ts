@@ -19,10 +19,8 @@ export class FormatImagePipe implements PipeTransform {
 
     if (size === "big") {
       if (value.orientation === 1) {
-        console.log(value.key)
         return this._imageService.loadImage720x1280(value.key)
       } else {
-        console.log(value.key)
         return this._imageService.loadImage1280x720(value.key)
       }
     }

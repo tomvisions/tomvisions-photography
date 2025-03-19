@@ -21,7 +21,7 @@ export interface Image {
 }
 
 export interface GetGallery {
-  data?
+  data?: Gallery[]
 }
 export interface GalleryPagination
 {

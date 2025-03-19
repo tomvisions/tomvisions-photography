@@ -1,5 +1,5 @@
 <lightgallery [settings]="settings" [onBeforeSlide]="onBeforeSlide">
-    <ng-template ngFor let-image [ngForOf]="galleries">
+  @for (image of galleries; track image; let i = $index) {
     <a
     data-pinterest-text="Pin it1"
     data-tweet-text="lightGallery slide  1"
@@ -10,7 +10,7 @@
     href="{{image | formatImage:'big'}}" >
       <img alt="{{image.description}} - TomVisions Photography" src="{{image | formatImage}}"  style="border:10px solid white;" />
     </a>
-    </ng-template>
+  }
 </lightgallery>
 
 
